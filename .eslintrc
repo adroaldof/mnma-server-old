@@ -1,0 +1,16 @@
+{
+  "env": { "node": true, "Parse": true },
+  "extends": "airbnb/base",
+  "parser": "babel-eslint",
+	"rules": {
+       "indent": [2, 2, {
+          "SwitchCase": 1,
+          "VariableDeclarator": { "let": 1, "const": 1 }
+       }],
+       "arrow-parens": [2, "as-needed"],
+       "no-mixed-spaces-and-tabs": ["error", "smart-tabs"],
+       "no-use-before-define": [2, "nofunc"],
+       "space-before-function-paren": [2, { "anonymous": "always", "named": "always" }],
+       "template-curly-spacing": ["error", "never"]
+	}
+}

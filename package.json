@@ -1,0 +1,23 @@
+{
+  "name": "mnma",
+  "version": "0.0.1",
+  "description": "Mnma Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/mnma/mnma-server.git"
+  },
+  "keywords": [
+    "Mnma",
+    "server"
+  ],
+  "author": "Adroaldo de Andrade <adroaldof@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/mnma/mnma-server/issues"
+  },
+  "homepage": "https://gitlab.com/mnma/mnma-server#README"
+}
