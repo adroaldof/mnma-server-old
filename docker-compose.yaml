@@ -1,0 +1,74 @@
+parse-server:
+  image: yongjhih/parse-server
+  ports:
+    - '1337:1337'
+  environment:
+    APP_ID: 'ioS51qwgmWqf31tVuZs97QKcDjv5VyzY7A9d9rcq'
+    APP_NAME: 'mnma'
+    DATABASE_URI: 'mongodb://b2b_staging:b2b_staging@ds135912.mlab.com:35912/b2b-staging'
+    FILE_KEY: 'fileKey'
+    MASTER_KEY: 'AKIAI4EDN7ZEF7YSAZCA'
+    PARSE_MOUNT: '/parse'
+    PORT: '1337'
+    PUBLIC_SERVER_URL: 'http://localhost:1337/parse'
+    SERVER_URL: 'http://localhost:1337/parse'
+    LOG_LEVEL: '1'
+  links:
+    - mongo
+  volumes_from:
+    - parse-cloud-code
+  volumes:
+    - /parse/cloud
+    - './volumes/certs:/certs'
+
+parse-cloud-code:
+  image: yongjhih/parse-cloud-code
+  volumes:
+    - /parse/cloud
+  command: 'ls /parse/cloud'
+
+mongo:
+  image: mongo:3.0.8 # ref. https://github.com/ParsePlatform/parse-server/issues/1913
+  ports:
+    - '27017:27017'
+  volumes_from:
+    - mongo-data
+  #  command: '--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false --rest --auth'
+  command: '--smallfiles --logpath=/dev/null --setParameter failIndexKeyTooLong=false'
+  # ref. http://www.diogogmt.com/running-mongodb-with-docker-and-compose/
+
+mongo-data:
+  image: mongo
+  volumes:
+    - /data/db
+  command: '--break-mongo'
+
+# parse-dashboard:
+#   image: yongjhih/parse-dashboard:1.0.18
+#   # image: yongjhih/parse-dashboard
+#   links:
+#     - parse-server
+#   environment:
+#     APP_ID: 'ioS51qwgmWqf31tVuZs97QKcDjv5VyzY7A9d9rcq'
+#     APP_NAME: 'mnma'
+#     MASTER_KEY: 'AKIAI4EDN7ZEF7YSAZCA'
+#     SERVER_URL: 'http://172.17.42.1:1337/parse'
+#     PORT: '4040'
+#     PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: '0'
+#     # USER1: $USER1
+#     # USER1_PASSWORD: $USER1_PASSWORD
+#     # PARSE_DASHBOARD_SERVER_URL: $SERVER_URL
+#     # PARSE_DASHBOARD_MASTER_KEY: $MASTER_KEY
+#     # PARSE_DASHBOARD_APP_ID: $APP_ID
+#     # PARSE_DASHBOARD_APP_NAME: $APP_NAME
+#     # PARSE_DASHBOARD_USER_ID: $USER1
+#     # PARSE_DASHBOARD_USER_PASSWORD: $USER1_PASSWORD
+#     # PARSE_DASHBOARD_CONFIG: $PARSE_DASHBOARD_CONFIG
+#     # MOUNT_PATH: $PARSE_DASHBOARD_MOUNT_PATH
+#     TRUST_PROXY: '0'
+#   ports:
+#     - '4040:4040'
+#   # command: parse-dashboard
+#   #   volumes:
+#   #     - 'parse-dashboard-config.json:/src/Parse-Dashboard/parse-dashboard-config.json'
+

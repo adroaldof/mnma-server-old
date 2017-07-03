@@ -4,7 +4,9 @@
   "description": "Mnma Server",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js"
+    "dev": "./node_modules/.bin/nodemon --exec npm start",
+    "start": "babel-node index.js",
+    "up": "docker-compose up"
   },
   "repository": {
     "type": "git",
@@ -19,7 +21,10 @@
   "bugs": {
     "url": "https://gitlab.com/mnma/mnma-server/issues"
   },
-  "homepage": "https://gitlab.com/mnma/mnma-server#README"
+  "homepage": "https://gitlab.com/mnma/mnma-server#README",
+  "engine": {
+    "node": "7.6.0"
+  },
   "babel": {
     "plugins": [
       "syntax-object-rest-spread",
@@ -29,6 +34,15 @@
       "transform-export-extensions",
       "transform-object-rest-spread"
     ]
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "kerberos": "0.0.23",
+    "morgan": "^1.8.2",
+    "nodemon": "^1.11.0",
+    "parse": "^1.10.0",
+    "parse-dashboard": "^1.0.28",
+    "parse-server": "^2.5.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
