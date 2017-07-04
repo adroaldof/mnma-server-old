@@ -1,10 +1,10 @@
-import ParseDashboard from 'parse-dashboard';
-import express from 'express';
-import httpServer from 'http';
-import morgan from 'morgan';
-import { ParseServer } from 'parse-server'; // eslint-disable-line import/no-extraneous-dependencies
+const ParseDashboard = require('parse-dashboard');
+const express = require('express');
+const httpServer = require('http');
+const morgan = require('morgan');
+const { ParseServer } = require('parse-server'); // eslint-disable-line import/no-extraneous-dependencies
 
-import configs from './configs';
+const configs = require('./configs');
 
 const app = express();
 

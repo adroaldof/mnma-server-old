@@ -1,5 +1,5 @@
-import parseDashboard from './parse-dashboard';
-import parseServer from './parse-server';
+const parseDashboard = require('./parse-dashboard');
+const parseServer = require('./parse-server');
 
 
 const configs = {
@@ -7,9 +7,9 @@ const configs = {
 };
 
 
-export default {
+module.exports = {
   parseDashboard,
   parseServer,
-  ...configs,
+  configs,
 };
 

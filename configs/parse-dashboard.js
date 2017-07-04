@@ -1,6 +1,6 @@
 const suffix = `_${String(process.env.NODE_ENV).toUpperCase()}` || '';
 
-export default {
+module.exports = {
   apps: [
     {
       appId: process.env.APP_ID || 'ioS51qwgmWqf31tVuZs97QKcDjv5VyzY7A9d9rcq',

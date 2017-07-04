@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "./node_modules/.bin/nodemon --exec npm start",
-    "start": "./node_modules/babel-cli/bin/babel-node index.js",
+    "start": "node index.js",
     "up": "docker-compose up"
   },
   "repository": {
@@ -25,16 +25,6 @@
   "engine": {
     "node": "7.6.0"
   },
-  "babel": {
-    "plugins": [
-      "syntax-object-rest-spread",
-      "transform-async-to-generator",
-      "transform-es2015-destructuring",
-      "transform-es2015-modules-commonjs",
-      "transform-export-extensions",
-      "transform-object-rest-spread"
-    ]
-  },
   "dependencies": {
     "express": "^4.15.3",
     "kerberos": "0.0.23",
@@ -42,15 +32,10 @@
     "nodemon": "^1.11.0",
     "parse": "^1.10.0",
     "parse-dashboard": "^1.0.28",
-    "parse-server": "^2.5.1",
-    "babel-cli": "^6.24.1",
+    "parse-server": "^2.5.1"
+  },
+  "devDependencies": {
     "babel-eslint": "^7.2.3",
-    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-plugin-transform-es2015-destructuring": "^6.23.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
-    "babel-plugin-transform-export-extensions": "^6.22.0",
-    "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",
