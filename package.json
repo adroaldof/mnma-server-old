@@ -4,8 +4,8 @@
   "description": "Mnma Server",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon --exec npm run dev",
-    "dev": "babel-node index.js",
+    "dev": "./node_modules/.bin/nodemon --exec npm start",
+    "start": "./node_modules/babel-cli/bin/babel-node index.js",
     "up": "docker-compose up"
   },
   "repository": {
@@ -43,6 +43,7 @@
     "parse": "^1.10.0",
     "parse-dashboard": "^1.0.28",
     "parse-server": "^2.5.1",
+    "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-syntax-object-rest-spread": "^6.13.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
