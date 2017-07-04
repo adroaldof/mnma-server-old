@@ -4,8 +4,8 @@
   "description": "Mnma Server",
   "main": "index.js",
   "scripts": {
-    "dev": "./node_modules/.bin/nodemon --exec npm start",
-    "start": "babel-node index.js",
+    "start": "./node_modules/.bin/nodemon --exec npm run dev",
+    "dev": "babel-node index.js",
     "up": "docker-compose up"
   },
   "repository": {
